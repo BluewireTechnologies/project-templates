@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Task xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://schemas.microsoft.com/windows/2004/02/mit/task ./TaskDefinition.xsd">
+  <RegistrationInfo>
+    <Author></Author>
+    <Version></Version>
+    <Description></Description>
+  </RegistrationInfo>
+  <Triggers>
+    <CalendarTrigger>
+      <Enabled>true</Enabled>
+      <StartBoundary>$year$-01-01T${$safeprojectname$StartTime}:00</StartBoundary>
+      <ScheduleByDay>
+        <DaysInterval>1</DaysInterval>
+      </ScheduleByDay>
+    </CalendarTrigger>
+  </Triggers>
+  <Settings>
+    <Enabled>true</Enabled>
+    <AllowStartOnDemand>true</AllowStartOnDemand>
+    <AllowHardTerminate>true</AllowHardTerminate>
+  </Settings>
+  <Actions>
+    <Exec>
+      <Command>$projectname$.exe</Command>
+      <Arguments></Arguments>
+      <WorkingDirectory> <!-- This will be filled in by the PostDeploy.ps1 script. --> </WorkingDirectory>
+    </Exec>
+  </Actions>
+</Task>
