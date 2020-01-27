@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>Scheduled Task Package</Name>
+    <Description>A C# project which can be automatically deployed via Octopus as a scheduled task</Description>
+    <Icon>ProjectTemplate.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <LanguageTag>csharp</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <RequiredFrameworkVersion>4.6</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>acc3773e-dc51-43a0-9b9b-c18d29e1c9d5</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <ProvideDefaultName>false</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.config">AppTemplate.config</ProjectItem>
+      <ProjectItem ReplaceParameters="true">PostDeploy.ps1</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Program.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">README.md</ProjectItem>
+      <ProjectItem ReplaceParameters="true">TaskDefinition.xml</ProjectItem>
+      <ProjectItem ReplaceParameters="false">TaskDefinition.xsd</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
