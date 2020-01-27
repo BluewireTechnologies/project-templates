@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup>
+        <!-- Full list of NuGet package projects -->
+        <NugetProjects Include="**\*.Contracts.csproj" />
+
+        <!-- Full list of NUnit test projects -->
+        <NUnitProjects Include="**\*.UnitTests.csproj" />
+        
+        <!-- Not actually an OctoPack project, but we need to force it to build in order to find the VSIX. -->
+        <OctoPackProjects Include="Bluewire.ProjectTemplates/Bluewire.ProjectTemplates.csproj">
+            <UseSemVer>True</UseSemVer>
+        </OctoPackProjects>
+    </ItemGroup>
+    <PropertyGroup>
+        <DotCoverConfigurationFile>DotCover.coverage.xml</DotCoverConfigurationFile>
+    </PropertyGroup>
+    
+    <Target Name="UpdateOutputBinariesGroup" BeforeTargets="BuildAndPackage" DependsOnTargets="Build">
+        <!-- Do this after the initial build, to ensure that there's actually something there. -->
+        <ItemGroup>
+            <OutputBinaries Include="Bluewire.ProjectTemplates\bin\**\*.vsix" />
+        </ItemGroup>
+    </Target>
+</Project>
