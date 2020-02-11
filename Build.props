@@ -8,9 +8,7 @@
         <NUnitProjects Include="**\*.UnitTests.csproj" />
         
         <!-- Not actually an OctoPack project, but we need to force it to build in order to find the VSIX. -->
-        <OctoPackProjects Include="Bluewire.ProjectTemplates/Bluewire.ProjectTemplates.csproj">
-            <UseSemVer>True</UseSemVer>
-        </OctoPackProjects>
+        <OctoPackProjects Include="Bluewire.ProjectTemplates/Bluewire.ProjectTemplates.csproj" />
     </ItemGroup>
     <PropertyGroup>
         <DotCoverConfigurationFile>DotCover.coverage.xml</DotCoverConfigurationFile>
