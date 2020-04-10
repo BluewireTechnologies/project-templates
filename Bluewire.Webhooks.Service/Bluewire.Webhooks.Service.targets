@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <Target Name="ConfigureAppConfigTransformOutputPaths" AfterTargets="PrepareForBuild" BeforeTargets="GenerateBindingRedirects;AssignTargetPaths">
+    <ItemGroup>
+      <_DependentUponAppConfig Include="@(None->'%(Identity)')" Condition="'%(None.DependentUpon)' == '$(AppConfig)' And '$(AppConfig)' != ''" Exclude="$(AppConfig)" />
+      <ContentWithTargetPath Include="@(_DependentUponAppConfig)">
+        <TargetPath>$([System.Text.RegularExpressions.Regex]::Replace('%(Identity)', '^App.', '$(TargetName)$(TargetExt).', System.Text.RegularExpressions.RegexOptions.IgnoreCase))</TargetPath>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </ContentWithTargetPath>
+    </ItemGroup>
+  </Target>
+</Project>

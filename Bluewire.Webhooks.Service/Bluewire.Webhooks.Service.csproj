@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net46</TargetFrameworks>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="*.ncrunchproject" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Octopus.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Bluewire.Common.Console" Version="11.1.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.OwinSelfHost" Version="5.2.7" />
+  </ItemGroup>
+  <Import Project="Bluewire.Webhooks.Service.targets" />
+</Project>
